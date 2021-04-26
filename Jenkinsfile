@@ -49,7 +49,11 @@ node {
     }
     stage('Build Docker Image'){
         // code execution
-        sh 'cp /var/lib/jenkins/workspace/addressbook_package/target/addressbook.war .'
-        sh 'sudo docker build . -t addressbook'
+        steps {
+            sh 'cp target/addressbook.war .'
+            sh 'docker build . -t vsbopi/addressbook:$BUILD_NUMBER'
+            sh 'sudo docker push vsbopi/addressbook:$BUILD_NUMBER'
+        }
+        
     }
 }

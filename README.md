@@ -1,4 +1,3 @@
-Test 1
 Addressbook Tutorial (Updated)
 ==============================
 
